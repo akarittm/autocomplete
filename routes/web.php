@@ -1,6 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AutoCompleteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +19,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home',[\App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('search', [AutoCompleteController::class, 'index'])->name('search');
+
+Route::get('autocomplete', [AutoCompleteController::class, 'autocomplete'])->name('autocomplete');
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
