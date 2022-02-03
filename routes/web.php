@@ -1,7 +1,9 @@
 <?php
-
+   
 use Illuminate\Support\Facades\Route;
-
+   
+use App\Http\Controllers\AutoCompleteController;
+   
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function(){
     return view('welcome');
 });
+Route::get('search', [AutoCompleteController::class, 'index'])->name('search');
+Route::get('autocomplete', [AutoCompleteController::class, 'autocomplete'])->name('autocomplete');
