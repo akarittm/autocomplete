@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\AutoCompleteController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,3 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('search',[AutoCompleteController::class, 'index'])->name('search');
+
+Route::get('autocomplete',[AutoCompleteController::class, 'autocomplete'])->name('autocomplete');
